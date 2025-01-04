@@ -1,0 +1,49 @@
+version: '3.9'
+services:
+  asterisk_5533333333:
+    image: asterisk-docker-tls-trunking
+    container_name: asterisk_5533333333
+    network_mode: host
+    restart: always
+    environment:
+      - "PORTA_TLS=5070"
+      - "PORTA_UDP=5090"
+      - "RTP_INICIO=20001"
+      - "RTP_FIM=20100"
+      - "TRONCO_HOST=127.0.0.1"
+      - "TRONCO_PORTA=5060"
+      - "SBC_OI=sbc-cn55-uc.ims.oi.net.br"
+      - "NUMERO_OI=5533333333"
+    volumes:
+      - ./certs:/etc/asterisk/certs
+      - ./arquivos/trunks-OI:/etc/asterisk/trunks-OI
+      - ./arquivos/service.sh:/etc/asterisk/service.sh
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "10"
+
+  asterisk_5133333331:
+    image: asterisk-docker-tls-trunking
+    container_name: asterisk_5133333331
+    network_mode: host
+    restart: always
+    environment:
+      - "PORTA_TLS=5071"
+      - "PORTA_UDP=5091"
+      - "RTP_INICIO=20101"
+      - "RTP_FIM=20200"
+      - "TRONCO_HOST=127.0.0.1"
+      - "TRONCO_PORTA=5060"
+      - "SBC_OI=sbc-cn51-uc.ims.oi.net.br"
+      - "NUMERO_OI=5133333331"
+    volumes:
+      - ./certs:/etc/asterisk/certs
+      - ./arquivos/trunks-OI:/etc/asterisk/trunks-OI
+      - ./arquivos/service.sh:/etc/asterisk/service.sh
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "10"
