@@ -36,7 +36,7 @@ sed -i "s/ASTERISK_PORTA_UDP/$PORTA_UDP/g" /etc/asterisk/pjsip.conf
 sed -i "s/ASTERISK_DOMINIO/$SBC_OI/g" /etc/asterisk/pjsip.conf
 sed -i "s/NUMERO_OI/$NUMERO_OI/g" /etc/asterisk/pjsip.conf
 sed -i "s/NUMERO_OI/$NUMERO_OI/g" /etc/asterisk/extensions.conf
-sed -i "s/ASTERISK_DOMINIO/$SBC_OI/g" /etc/asterisk/res_pjsip_nat.conf
+sed -i "s/ASTERISK_IP_EXTERNO/$IPEXTERNO/g" /etc/asterisk/res_pjsip_nat.conf
 
 sed -i "s/ASTERISK_TRONCO_HOST/$TRONCO_HOST/g" /etc/asterisk/pjsip.conf
 sed -i "s/ASTERISK_TRONCO_PORTA/$TRONCO_PORTA/g" /etc/asterisk/pjsip.conf
