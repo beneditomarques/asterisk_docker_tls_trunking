@@ -1,5 +1,5 @@
 FROM rockylinux:9-minimal
-RUN microdnf -y install wget && \
+RUN microdnf -y install wget vim && \
 wget https://opensource.vsphone.com.br/teams/teams.repo -O /etc/yum.repos.d/teams.repo && \
 microdnf -y install asterisk-pjsip sngrep asterisk-hep && \
 rm -Rf /var/cache/yum/ && \
